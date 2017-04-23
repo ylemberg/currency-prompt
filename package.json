@@ -1,0 +1,14 @@
+{
+  "name": "yuriy",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ylemberg/currency-prompt.git",
+  "author": "Yuriy Lemberg <yuriy.v.lemberg@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon server/server.js"
+  },
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
