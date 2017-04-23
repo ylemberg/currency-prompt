@@ -1,7 +1,0 @@
-machine:
-  node:
-    version: 6.9.4
-general:
-  branches:
-    only:
-     - master
