@@ -8,3 +8,7 @@ npm-debug.log
 ** Dependencies **
 
 client/lib
+
+** Misc **
+
+.DS_Store
