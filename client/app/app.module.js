@@ -7,6 +7,6 @@ angular.module('currency-prompt')
     controller: 'appCtrl as ctrl',
     scope: {
     },
-    templateUrl: 'app/templates/app.html'
+    templateUrl: 'app/app.html'
   }
 })

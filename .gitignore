@@ -4,3 +4,7 @@ npm-debug.log
 
 ** Config **
 .env
+
+** Dependencies **
+
+client/lib
