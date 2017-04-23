@@ -1,13 +1,10 @@
-const express = require('express')
-require('./server-config')
+const serverConfig = require('./server-config')
 
-const app = express()
-const PORT = 1337
-
+const app = serverConfig.app
 // app.use(express.static(`${__dirname}/../public`))
 
 app.use(require('./routes'))
 
-app.listen(PORT, () => {
-  console.log(`listening on port ${PORT}`)
+app.listen(serverConfig.PORT, () => {
+  console.log(`listening on port ${serverConfig.PORT}`)
 })
