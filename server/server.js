@@ -1,5 +1,5 @@
 const express = require('express')
-require('dotenv').config()
+require('./server-config')
 
 const app = express()
 const PORT = 1337
