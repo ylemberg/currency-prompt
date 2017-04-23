@@ -2,7 +2,7 @@ const serverConfig = require('./server-config')
 
 const app = serverConfig.app
 const express = serverConfig.express
-app.use(express.static(`${__dirname}/../public`))
+app.use(express.static(`${__dirname}/../client`))
 
 app.use(require('./routes'))
 
