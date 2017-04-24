@@ -1,5 +1,5 @@
 angular.module('currency-prompt')
-.controller('currencyDropdownCtrl', ['$scope', 'currencyAPI', 'conversion', function ($scope, currencyAPI, conversion) {
+.controller('currencyDropdownCtrl', ['currencyAPI', 'conversion', function (currencyAPI, conversion) {
   var vm = this
 
   vm.init = () => {
