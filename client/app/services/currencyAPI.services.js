@@ -4,20 +4,26 @@ angular.module('currency-prompt')
   let currenciesToDisplay = []
   let countryCurrencies = []
 
+  const requestCompaniesSuccess = resp => {
+    this.formatCompanies(resp.data)
+  }
+  const requestCompaniesFailure = err => {
+    console.error(`err after requesting companies = ${err}`)
+  }
+
+  const requestCurrenciesSuccess = resp => {
+    this.formatCurrencies(resp.data)
+  }
+  const requestCurrenciesFailure = err => {
+    console.error(`err after requesting companies = ${err}`)
+  }
+
   this.requestCompanies = () => {
-    $http.get('/companies')
-      .then(resp => {
-        this.formatCompanies(resp.data)
-      }, err => {
-        console.error(`err after $http.get = ${err}`)
-      })
+    $http.get('/companies').then(requestCompaniesSuccess, requestCompaniesFailure)
   }
 
   this.requestCurrencies = () => {
-    $http.get('/currencies')
-      .then(resp => {
-        this.formatCurrencies(resp.data)
-      })
+    $http.get('/currencies').then(requestCurrenciesSuccess, requestCurrenciesFailure)
   }
 
   this.getCurrencyValues = () => currenciesToDisplay

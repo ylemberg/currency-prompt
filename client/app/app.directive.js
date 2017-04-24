@@ -1,8 +1,8 @@
 angular.module('currency-prompt')
-.controller('appCtrl', ['$scope', function ($scope) {
-  var vm = this
+.controller('appCtrl', [() => {
+  const vm = this
 }])
-.directive('app', function () {
+.directive('app', () => {
   return {
     controller: 'appCtrl as ctrl',
     scope: {

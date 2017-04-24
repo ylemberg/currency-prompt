@@ -1,6 +1,6 @@
 angular.module('currency-prompt')
 .controller('currencyDropdownCtrl', ['currencyAPI', 'conversion', function (currencyAPI, conversion) {
-  var vm = this
+  const vm = this
 
   vm.init = () => {
     $('.dropdown').dropdown()

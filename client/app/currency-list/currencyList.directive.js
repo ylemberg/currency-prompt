@@ -1,6 +1,6 @@
 angular.module('currency-prompt')
 .controller('currencyListCtrl', ['currencyAPI', 'conversion', function (currencyAPI, conversion) {
-  var vm = this
+  const vm = this
 
   vm.init = () => {
     vm.companies = () => currencyAPI.getCurrencyValues()
