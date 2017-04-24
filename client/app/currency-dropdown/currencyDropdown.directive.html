@@ -3,7 +3,7 @@
       <input name="id" type="hidden" value="0"/>
       <div class="text">USD</div>	<i class="dropdown icon"></i>
       <div class="menu transition hidden">
-          <div data-value="{{country.value}}" class="item" ng-repeat="country in ctrl.countries">
+          <div data-value="{{country.value}}" class="item" ng-repeat="country in ctrl.countries" ng-click="ctrl.countrySelected(country)">
               {{country.name}}
           </div>
       </div>

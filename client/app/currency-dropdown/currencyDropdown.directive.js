@@ -1,11 +1,17 @@
 angular.module('currency-prompt')
-.controller('currencyDropdownCtrl', ['$scope', 'currencyAPI', function ($scope, currencyAPI) {
+.controller('currencyDropdownCtrl', ['$scope', 'currencyAPI', 'conversion', function ($scope, currencyAPI, conversion) {
   var vm = this
 
   vm.init = () => {
     $('.dropdown').dropdown()
+
     currencyAPI.requestCurrencies()
     vm.countries = currencyAPI.getCountryCurrencies()
+    vm.usdBase = currencyAPI.getUSDBase()
+  }
+
+  vm.countrySelected = country => {
+    currencyAPI.changeCurrencyValues(conversion.convertCurrency(country.value, vm.usdBase))
   }
 
   vm.init()
