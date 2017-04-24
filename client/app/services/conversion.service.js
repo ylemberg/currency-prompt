@@ -1,10 +1,10 @@
 angular.module('currency-prompt')
 .service('conversion', [function () {
   this.convertCurrency = (rate, currencies) => currencies.map(currency => {
-    const conversionRate = this.multiplyByRate(currency.value, rate)
+    const convertedValue = this.multiplyByRate(currency.value, rate)
     return {
       name: currency.name,
-      value: conversionRate
+      value: convertedValue
     }
   })
 
