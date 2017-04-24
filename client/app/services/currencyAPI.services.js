@@ -1,6 +1,7 @@
 angular.module('currency-prompt')
-.service('currencyCompanies', ['$http', function ($http) {
-  const currencies = []
+.service('currencyAPI', ['$http', function ($http) {
+  const usdBase = []
+  const currenciesToDisplay = []
 
   const handleSuccess = resp => {
     this.formatCurrencies(resp.data)
@@ -17,10 +18,14 @@ angular.module('currency-prompt')
     }).then(handleSuccess, handleFailure)
   }
 
-  this.getCurrencies = () => currencies
+  this.getCurrencies = () => currenciesToDisplay
   this.formatCurrencies = currenciesObj => {
     for (company in currenciesObj) {
-      currencies.push({
+      usdBase.push({
+        name: company,
+        value: currenciesObj[company]
+      })
+      currenciesToDisplay.push({
         name: company,
         value: currenciesObj[company]
       })
