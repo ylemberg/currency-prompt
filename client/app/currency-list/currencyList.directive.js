@@ -6,7 +6,7 @@ angular.module('currency-prompt')
     vm.companies = () => currencyAPI.getCurrencyValues()
     currencyAPI.requestCompanies()
   }
-  vm.lessthanzero = number => number < 0
+  vm.lessthanzero = number => parseInt(number, 10) < 0
 
   vm.init()
 }])
