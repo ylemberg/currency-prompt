@@ -1,7 +1,15 @@
 const currencyUtil = require('../utils/currency')
 
 module.exports = {
-  get: (req, res) => {
+  getCompanies: (req, res) => {
+    currencyUtil.getCompaniesFromAPI()
+      .then(companies => {
+        res.send(companies)
+      }).catch(err => {
+        res.status(500).send(err)
+      })
+  },
+  getCurrencies: (req, res) => {
     currencyUtil.getCurrenciesFromAPI()
       .then(currencies => {
         res.send(currencies)
