@@ -2,23 +2,22 @@ angular.module('currency-prompt')
 .service('currencyAPI', ['$http', function ($http) {
   const usdBase = []
   const currenciesToDisplay = []
+  const currencies = []
 
-  const handleSuccess = resp => {
-    this.formatCurrencies(resp.data)
+  this.requestCompanies = () => {
+    $http.get('/companies')
+      .then(resp => {
+        this.formatCurrencies(resp.data)
+      }, err => {
+        console.error(`err after $http.get = ${err}`)
+      })
   }
 
-  const handleFailure = err => {
-    console.error('err after $http.get = ', err)
+  this.getCurrencies = () => {
+    $http.get('/currencies')
   }
 
-  this.requestCurrencies = function (query, callback) {
-    $http({
-      method: 'GET',
-      url: '/currencies'
-    }).then(handleSuccess, handleFailure)
-  }
-
-  this.getCurrencies = () => currenciesToDisplay
+  this.getCurrencyValues = () => currenciesToDisplay
   this.formatCurrencies = currenciesObj => {
     for (company in currenciesObj) {
       usdBase.push({
@@ -31,4 +30,5 @@ angular.module('currency-prompt')
       })
     }
   }
+  this.getCurrencies = () => currencies
 }])

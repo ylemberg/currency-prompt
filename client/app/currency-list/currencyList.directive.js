@@ -2,8 +2,8 @@ angular.module('currency-prompt')
 .controller('currencyListCtrl', ['$scope', 'currencyAPI', function ($scope, currencyAPI) {
   var vm = this
 
-  vm.companies = currencyAPI.getCurrencies()
-  currencyAPI.requestCurrencies()
+  vm.companies = currencyAPI.getCurrencyValues()
+  currencyAPI.requestCompanies()
 
   vm.lessthanzero = number => number < 0
 }])
