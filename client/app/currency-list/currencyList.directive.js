@@ -1,5 +1,5 @@
 angular.module('currency-prompt')
-.controller('currencyListCtrl', ['$scope', 'currencyAPI', function ($scope, currencyAPI) {
+.controller('currencyListCtrl', ['$scope', 'currencyAPI', 'conversion', function ($scope, currencyAPI, conversion) {
   var vm = this
 
   vm.init = () => {
@@ -7,6 +7,7 @@ angular.module('currency-prompt')
     currencyAPI.requestCompanies()
   }
   vm.lessthanzero = number => parseInt(number, 10) < 0
+  vm.fixDecimals = val => conversion.setToTwoDecimals(val)
 
   vm.init()
 }])

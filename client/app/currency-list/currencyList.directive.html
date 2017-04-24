@@ -6,10 +6,10 @@
     <span ng-class="{ 'negative-value': ctrl.lessthanzero(company.value) }">
       <i class="dollar icon"></i>
       <span ng-if="!ctrl.lessthanzero(company.value)">
-        {{company.value}}
+        {{ctrl.fixDecimals(company.value)}}
       </span>
       <span ng-if="ctrl.lessthanzero(company.value)">
-        ({{company.value}})
+        ({{ctrl.fixDecimals(company.value)}})
       </span>
     </span>
   </div>

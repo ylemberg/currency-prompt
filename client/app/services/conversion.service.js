@@ -9,4 +9,6 @@ angular.module('currency-prompt')
   })
 
   this.multiplyByRate = (value, rate) => parseInt(value, 10) * rate
+
+  this.setToTwoDecimals = val => parseFloat(val).toFixed(2)
 }])

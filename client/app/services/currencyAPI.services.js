@@ -44,7 +44,7 @@ angular.module('currency-prompt')
     }
     countryCurrencies.push({
       name: 'USD',
-      value: 1
+      value: '1.00'
     })
     countryCurrencies = this.sortCountries(countryCurrencies)
   }
@@ -56,6 +56,5 @@ angular.module('currency-prompt')
 
   this.changeCurrencyValues = newCurrencies => {
     currenciesToDisplay = newCurrencies
-    console.log('currenciesToDisplay', currenciesToDisplay)
   }
 }])
