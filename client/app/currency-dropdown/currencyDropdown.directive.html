@@ -1,7 +1,12 @@
 <div>
-  <select class="ui dropdown currency-dropdown">
-    <option value="">Currency</option>
-    <option value="1">Male</option>
-    <option value="0">Female</option>
-  </select>
+  <div class="ui selection dropdown ">
+      <input name="id" type="hidden" value="0"/>
+      <div class="text">-- Pick A Container --</div>	<i class="dropdown icon"></i>
+      <div class="menu transition hidden">
+          <div class="item active">-- Pick A Container --</div>
+          <div data-value="{{country.value}}" class="item" ng-repeat="country in ctrl.countries">
+              {{country.name}}
+          </div>
+      </div>
+  </div>
 </div>

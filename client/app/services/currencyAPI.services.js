@@ -2,33 +2,48 @@ angular.module('currency-prompt')
 .service('currencyAPI', ['$http', function ($http) {
   const usdBase = []
   const currenciesToDisplay = []
-  const currencies = []
+  let countryCurrencies = []
 
   this.requestCompanies = () => {
     $http.get('/companies')
       .then(resp => {
-        this.formatCurrencies(resp.data)
+        this.formatCompanies(resp.data)
       }, err => {
         console.error(`err after $http.get = ${err}`)
       })
   }
 
-  this.getCurrencies = () => {
+  this.requestCurrencies = () => {
     $http.get('/currencies')
+      .then(resp => {
+        this.formatCurrencies(resp.data)
+      })
   }
 
   this.getCurrencyValues = () => currenciesToDisplay
-  this.formatCurrencies = currenciesObj => {
-    for (company in currenciesObj) {
+  this.formatCompanies = companiesObj => {
+    for (company in companiesObj) {
       usdBase.push({
         name: company,
-        value: currenciesObj[company]
+        value: companiesObj[company]
       })
       currenciesToDisplay.push({
         name: company,
-        value: currenciesObj[company]
+        value: companiesObj[company]
       })
     }
   }
-  this.getCurrencies = () => currencies
+  this.formatCurrencies = currenciesObj => {
+    for (currency in currenciesObj) {
+      countryCurrencies.push({
+        name: currency,
+        value: currenciesObj[currency]
+      })
+    }
+    countryCurrencies = this.sortCountries(countryCurrencies)
+  }
+  this.sortCountries = countries => countries.sort((countryA, countryB) => {
+    return countryA.name < countryB.name ? -1 : 1
+  })
+  this.getCountryCurrencies = () => countryCurrencies
 }])

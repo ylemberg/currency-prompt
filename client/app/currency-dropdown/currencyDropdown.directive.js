@@ -1,9 +1,14 @@
 angular.module('currency-prompt')
 .controller('currencyDropdownCtrl', ['$scope', 'currencyAPI', function ($scope, currencyAPI) {
   var vm = this
-  $('.dropdown').dropdown()
 
-  this.currencies = currencyAPI.getCurrencies()
+  vm.init = () => {
+    $('.dropdown').dropdown()
+    currencyAPI.requestCurrencies()
+    vm.countries = currencyAPI.getCountryCurrencies()
+  }
+
+  vm.init()
 }])
 .directive('currencyDropdown', function () {
   return {
