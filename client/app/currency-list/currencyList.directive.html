@@ -1,8 +1,10 @@
-<div>
-  <div class="ui list">
-    <div class="item" ng-repeat="company in ctrl.companies">
-      <div class="header">{{company.name}}</div>
-      {{company.value}}
+<div class="ui list">
+  <div class="item" ng-repeat="company in ctrl.companies">
+    <div class="header">
+      {{company.name}}
     </div>
+    <span ng-class="{ 'negative-value': ctrl.lessthanzero(company.value) }">
+      <i class="dollar icon"></i>{{company.value}}
+    </span>
   </div>
 </div>

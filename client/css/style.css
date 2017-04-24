@@ -1,3 +1,7 @@
 .container {
   margin-top: 25px;
 }
+
+.negative-value {
+  color: red;
+}
