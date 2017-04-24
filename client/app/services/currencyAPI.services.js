@@ -40,6 +40,10 @@ angular.module('currency-prompt')
         value: currenciesObj[currency]
       })
     }
+    countryCurrencies.push({
+      name: 'USD',
+      value: 1
+    })
     countryCurrencies = this.sortCountries(countryCurrencies)
   }
   this.sortCountries = countries => countries.sort((countryA, countryB) => {
