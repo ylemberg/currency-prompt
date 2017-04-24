@@ -6,9 +6,10 @@ npm-debug.log
 .env
 
 ** Dependencies **
-
 client/lib
 
-** Misc **
+** Deployment **
+currency-prompt.pem
 
+** Misc **
 .DS_Store
